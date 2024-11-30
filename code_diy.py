@@ -1,4 +1,3 @@
-from st_clickable_images import clickable_images
 from streamlit_option_menu import option_menu
 import google.generativeai as genai
 import streamlit as st
