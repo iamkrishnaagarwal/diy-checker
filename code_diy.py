@@ -3,10 +3,6 @@ import google.generativeai as genai
 import streamlit as st
 import os
 
-headers = {
-"authorization": st.secrets["auth_token"],
-"content-type": "application/json"}
-
 st.set_page_config(page_title="DIY Tester || Skin Formulator", page_icon=":moon:", layout="wide")
 st.markdown("""<style>.stApp {background-color: #0E1117;color: white;}</style>""",unsafe_allow_html=True,)
 
@@ -47,7 +43,7 @@ if selected2 == "DIY's":
             if word_count > 100:
                 st.warning("You have exceeded the word limit of 100 words.")
             elif word_count <= 100:
-                genai.configure(api_key = genai_key)
+                genai.configure(api_key = st.secrets["auth_token"])
                 model = genai.GenerativeModel("gemini-1.5-flash")
                 user_input = f"Especially for {selected_option_skin}, used in {selected_option_s} season in {selected_option_l} tell me to use it or not especially for my skin type and things to remeber before using the below recipe {user_input} "
                 # st.write(user_input)
