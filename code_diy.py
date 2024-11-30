@@ -3,7 +3,9 @@ import google.generativeai as genai
 import streamlit as st
 import os
 
-genai_key = "GOOGLE_API_KEY"
+headers = {
+"authorization": st.secrets["auth_token"],
+"content-type": "application/json"}
 
 st.set_page_config(page_title="DIY Tester || Skin Formulator", page_icon=":moon:", layout="wide")
 st.markdown("""<style>.stApp {background-color: #0E1117;color: white;}</style>""",unsafe_allow_html=True,)
